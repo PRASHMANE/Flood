@@ -15,6 +15,7 @@ from pathlib import Path
 
 
 from deployment.api.home import home
+from deployment.api.risk import risk
 
 # --- Function to convert local file to base64 for embedding ---
 def img_to_base64(img_path):
@@ -366,6 +367,7 @@ elif st.session_state.subpage == "Early Prediction":
     st.success("📈 View **early flood prediction models** and output here.") 
 elif st.session_state.subpage == "Risk Graph":
     st.warning("📊 **Risk Graph:** Visualize the current and forecasted risk levels.") 
+    risk()
 elif st.session_state.subpage == "Add Camera URL":
     st.info("📷 Add and manage camera URLs.")
 elif st.session_state.subpage == "Flood Monitor": 
