@@ -18,6 +18,7 @@ from deployment.api.home import home
 from deployment.api.risk import risk
 from src.models.prediction import pre1
 from deployment.api.live import live_cam
+from src.models.model import track
 
 # --- Function to convert local file to base64 for embedding ---
 def img_to_base64(img_path):
@@ -419,4 +420,5 @@ elif st.session_state.subpage == "Add Camera URL":
 
 
 elif st.session_state.subpage == "Flood Monitor": 
-    st.info("❤️ Real-time **flood monitoring interface**.")
+    #st.info("❤️ Real-time **flood monitoring interface**.")
+    track()
