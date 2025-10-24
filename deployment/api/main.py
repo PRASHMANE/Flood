@@ -73,7 +73,7 @@ LOCAL_IMAGE_PATHS = [
 b64_image_uris = [img_to_base64(p) for p in LOCAL_IMAGE_PATHS if img_to_base64(p)]
 
 
-st.set_page_config(page_title="Patient Dashboard", layout="wide")
+st.set_page_config(page_title="Floods Dashboard", layout="wide")
 
 # Initialize state
 if "subpage" not in st.session_state:

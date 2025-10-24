@@ -1,4 +1,4 @@
-#from src.models.alert import send_email_alert
+from src.models.alert import email
 def track():
     import cv2
     from ultralytics import YOLO
@@ -13,7 +13,7 @@ def track():
     # ------------------------------
     yolo_model = YOLO("seg.pt")  # YOLO flood detection model
     tracker = DeepSort(max_age=30)  # DeepSORT tracker
-
+    tr=[]
     # ------------------------------
     # Streamlit UI
     # ------------------------------
@@ -38,6 +38,8 @@ def track():
                 # Only track "floods"
                 if label.lower() == "floods":
                     detections.append(([x1, y1, x2 - x1, y2 - y1], 0.99, label))
+
+                    #email()
         
         # Update tracker
         tracks = tracker.update_tracks(detections, frame=frame)
@@ -53,6 +55,9 @@ def track():
             cv2.putText(frame, f"ID {track_id}: Flood", (int(l), int(t)-10),
                         cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
             flood_detected = True
+            if track_id not in tr and flood_detected == True:
+                tr.append(track_id)
+                email()# ----------------------------------------------------------> sending the alert msg
 
         return frame, flood_detected
 
