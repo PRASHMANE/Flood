@@ -1,0 +1,7 @@
+xgboost
+pandas
+numpy
+scikit-learn
+opencv-python
+ultralytics
+plotly
