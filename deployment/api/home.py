@@ -21,7 +21,7 @@ def home():
     # Left Column → Student Names
     with col1:
         st.subheader("Team Members")
-        students = ["GANASREE A (1AJ22CS049)", "Student 2", "Student 3"]
+        students = ["BHUMIKA B S (1AJ22CS023)", "BRUNDA M K (1AJ22CS029)", "BHAKTHI C (1AJ22CS018)","CHANDANA R M GOWDA (1AJ22CS032)"]
         for s in students:
             st.write(f"- {s}")
 
